@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app-production
+  namespace: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-app-production
+  template:
+    metadata:
+      labels:
+        app: web-app-production
+    spec:
+      containers:
+      - name: web-app
+        image: gcr.io/sodium-port-454223-m6/web-app-production
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_HOST
+          value: database-svc-production
+        - name: DB_USER
+          value: admin
+        - name: DB_PASS
+          valueFrom:
+              secretKeyRef:
+                name: db-credentials
+                key: password
+        - name: DB_NAME
+          value: socialapp_prod

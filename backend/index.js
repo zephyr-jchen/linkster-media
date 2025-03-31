@@ -18,6 +18,12 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
+// app.get('/', (req, res) => {
+//   const html = fs.readFileSync(path.join(__dirname, '../frontend/login.html'), 'utf-8');
+//   const podName = process.env.HOSTNAME || 'unknown-pod';
+//   const htmlWithPod = html.replace('</body>', `<!-- Pod: ${podName} --></body>`);
+//   res.send(htmlWithPod);
+// });
 app.get('/', (req, res) => {
   res.sendFile('login.html', { root: path.join(__dirname, '../frontend') });
 });

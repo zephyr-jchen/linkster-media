@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <!-- Pod: ${process.env.HOSTNAME} -->
+
     <div class="container">
         <!-- Navigation -->
         <nav class="navbar">
@@ -71,14 +73,14 @@
 
   <script>
     // Populate current user's username and avatar after DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      const user = JSON.parse(sessionStorage.getItem('currentUser'));
-      if (user) {
-        document.getElementById('post-username').textContent = user.username;
-        const avatar = document.getElementById('user-avatar');
-        avatar.src = user.avatar || 'avatar.png';
-      }
-    });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   const user = JSON.parse(sessionStorage.getItem('currentUser'));
+    //   if (user) {
+    //     document.getElementById('post-username').textContent = user.username;
+    //     const avatar = document.getElementById('user-avatar');
+    //     avatar.src = user.avatar || 'avatar.png';
+    //   }
+    // });
   </script>
   <script src="scripts.js"></script>
 </body>

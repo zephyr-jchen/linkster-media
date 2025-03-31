@@ -24,8 +24,8 @@ async function init() {
     currentUser.avatar = user.avatar || 'avatar.png';
 
     document.getElementById('post-username').textContent = user.username;
-    document.getElementById('user-avatar').src = user.avatar ;
-    document.getElementById('nav-avatar').src = user.avatar;
+    document.getElementById('user-avatar').src = user.avatar|| 'avatar.png' ;
+    document.getElementById('nav-avatar').src = user.avatar || 'avatar.png';
 
     setupImageUpload();
     loadPosts();
