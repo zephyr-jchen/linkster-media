@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkster - Login</title>
+    <link rel="stylesheet" href="login-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1 class="logo">Linkster</h1>
+                <p class="tagline">Connect the world with Linkster</p>
+            </div>
+            
+            <div class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="text" id="username" placeholder="Email or Username">
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" id="password" placeholder="Password">
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                
+                <button id="login-btn" onclick="login()">Log In</button>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                
+                <button id="signup-btn" onclick="showSignup()">Create New Account</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content signup-modal">
+            <div class="modal-header">
+                <h2>Sign Up</h2>
+                <span class="close-modal" onclick="closeSignup()">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="input-row">
+                    <div class="input-group">
+                        <input type="text" id="first-name" placeholder="First Name">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="last-name" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="user-name" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="signup-email" placeholder="Email">
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="signup-password" placeholder="New Password">
+                </div>
+                
+                <div class="birthday-section">
+                    <label>Birthday</label>
+                    <div class="birthday-inputs">
+                        <select id="birth-month">
+                            <option value="">Month</option>
+                            <option value="1">Jan</option>
+                            <option value="2">Feb</option>
+                            <option value="3">Mar</option>
+                            <option value="4">Apr</option>
+                            <option value="5">May</option>
+                            <option value="6">Jun</option>
+                            <option value="7">Jul</option>
+                            <option value="8">Aug</option>
+                            <option value="9">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+                        </select>
+                        <select id="birth-day">
+                            <option value="">Day</option>
+                            <!-- Days will be populated via JavaScript -->
+                        </select>
+                        <select id="birth-year">
+                            <option value="">Year</option>
+                            <!-- Years will be populated via JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="gender-section">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <div class="gender-option">
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                        <div class="gender-option">
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="gender-option">
+                            <input type="radio" id="custom" name="gender" value="custom">
+                            <label for="custom">Custom</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="terms">
+                    By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.
+                </p>
+                
+                <button id="create-account-btn" onclick="createAccount()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Error Modal -->
+    <div id="error-modal" class="modal">
+        <div class="modal-content error-modal">
+            <div class="modal-header">
+                <h2>Error</h2>
+                <span class="close-modal" onclick="closeErrorModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="error-message"></p>
+                <button onclick="closeErrorModal()">OK</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="login-script.js"></script>
+</body>
+</html>

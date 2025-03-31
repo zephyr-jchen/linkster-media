@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkster - User Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="profile-icon" onclick="goToHomepage()">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="logo">Connect the world with Linkster</div>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for something...">
+                <button onclick="searchPosts()"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-right">
+                <div class="sign-out" onclick="signOut()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Profile Content -->
+        <main>
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-cover">
+                    <!-- Cover photo -->
+                </div>
+                <div class="profile-info">
+                    <div class="profile-avatar" onclick="triggerAvatarUpload()">
+                        <img id="profile-avatar-img" src="avatar.png" alt="Avatar">
+                        <input type="file" id="avatar-upload" accept="image/*" style="display:none;">
+                    </div>
+                    
+                    <div class="profile-details">
+                        <h1 id="profile-name">Loading...</h1>
+                        <p id="profile-username">@loading</p>
+                        <div class="profile-stats">
+                        </div>
+                    </div>
+                    <div class="profile-actions" id="profile-actions">
+                        <!-- Actions will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Content Tabs -->
+            <div class="profile-tabs">
+                <div class="tab active" data-tab="posts" onclick="switchTab('posts')">Posts</div>
+                <div class="tab" data-tab="about" onclick="switchTab('about')">About</div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Posts Tab (default) -->
+                <div class="tab-pane active" id="posts-pane">
+                    <div class="post-feed" id="profile-post-feed">
+                        <!-- Posts will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- About Tab -->
+                <div class="tab-pane" id="about-pane">
+                    <div class="about-section">
+                        <h3>Basic Information</h3>
+                        <div class="info-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span id="user-birthdate">Loading...</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-venus-mars"></i>
+                            <span id="user-gender">Loading...</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="user-email">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+        <!-- Edit Profile Modal -->
+  <div id="edit-profile-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h3>Edit Profile</h3>
+        <input type="text" id="edit-firstname" placeholder="First Name">
+        <input type="text" id="edit-lastname" placeholder="Last Name">
+        <input type="date" id="edit-birthdate">
+        <select id="edit-gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="email" id="edit-email" placeholder="Email">
+
+        <div style="margin-top:10px;">
+            <button onclick="submitEditProfile()">Save</button>
+            <button onclick="closeEditProfileModal()">Cancel</button>
+        </div>
+    </div>
+  </div>
+    <script src="profile.js"></script>
+</body>
+</html>

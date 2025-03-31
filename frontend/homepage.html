@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkster</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-left">
+              <div class="profile-icon" onclick="navigateToProfile()">
+                <img id="nav-avatar"  alt="avatar" class="nav-avatar-img">
+            </div>
+            
+                <div class="logo">Connect the world with Linkster</div>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for something...">
+                <button onclick="searchPosts()"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-right">
+                <div class="sign-out" onclick="signOut()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Create Post Section -->
+      <div class="create-post">
+        <div class="post-header">
+          <img id="user-avatar" src="avatar.png" alt="User" class="user-avatar">
+          <span class="username" id="post-username"></span>
+        </div>
+        <div class="post-input">
+          <textarea id="post-content" placeholder="Share something with your friends."></textarea>
+          <div class="post-actions">
+            <label for="image-upload" class="image-upload-label">
+              <i class="fas fa-image"></i> Add Image
+            </label>
+            <input type="file" id="image-upload" accept="image/*" style="display: none;">
+            <div id="image-preview" class="image-preview"></div>
+            <button id="post-btn" onclick="createPost()">Post</button>
+          </div>
+        </div>
+      </div>
+
+            <!-- Post Feed -->
+            <div class="post-feed" id="post-feed">
+                <!-- Posts will be dynamically added here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <p>The post will be deleted. Do you wish to continue?</p>
+            <div class="modal-actions">
+                <button id="confirm-yes">Yes</button>
+                <button id="confirm-no">No</button>
+            </div>
+        </div>
+    </div>
+
+
+  <script>
+    // Populate current user's username and avatar after DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(sessionStorage.getItem('currentUser'));
+      if (user) {
+        document.getElementById('post-username').textContent = user.username;
+        const avatar = document.getElementById('user-avatar');
+        avatar.src = user.avatar || 'avatar.png';
+      }
+    });
+  </script>
+  <script src="scripts.js"></script>
+</body>
