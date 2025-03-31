@@ -49,7 +49,6 @@ const createPost = async (req, res) => {
 };
 
 const { Storage } = require('@google-cloud/storage');
-const pool = require('../db');
 
 const storage = new Storage({
   keyFilename: './service-account.json', 

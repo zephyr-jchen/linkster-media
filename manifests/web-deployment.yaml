@@ -19,7 +19,7 @@ spec:
         - containerPort: 8080
         env:
         - name: DB_HOST
-          value: 127.0.0.1
+          value: database-svc
         - name: DB_USER
           value: admin
         - name: DB_PASS
@@ -29,16 +29,3 @@ spec:
                 key: password
         - name: DB_NAME
           value: socialapp
-      - name: cloudsql-proxy
-        image: gcr.io/cloudsql-docker/gce-proxy:1.31.2
-        command: ["/cloud_sql_proxy",
-                  "-instances=sodium-port-454223-m6:us-central1:socialapp-db=tcp:5432",
-                  "-credential_file=/secrets/cloudsql/credentials.json"]
-        volumeMounts:
-        - name: cloudsql-instance-credentials
-          mountPath: /secrets/cloudsql
-          readOnly: true
-      volumes:
-      - name: cloudsql-instance-credentials
-        secret:
-          secretName: cloudsql-instance-credentials

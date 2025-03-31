@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: database-svc
+spec:
+  selector:
+    app: cloudsql-proxy
+  ports:
+  - port: 5432
+    targetPort: 5432

@@ -8,7 +8,7 @@ console.log({
 const pool = new Pool({
   user: process.env.DB_USER || 'admin',
   password: process.env.DB_PASS || 'admin123',
-  host: process.env.DB_HOST || '127.0.0.1',
+  host: process.env.DB_HOST || 'database-svc',
   database: process.env.DB_NAME || 'socialapp',
   port: 5432,
 });
