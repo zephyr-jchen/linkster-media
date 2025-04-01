@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "======================"
-echo "🚀 Starting Full Deployment"
+echo "Starting Full Deployment"
 echo "======================"
 
 # Create Namespaces
@@ -24,12 +24,10 @@ kubectl apply -f manifests/prod/prod-web-service.yaml
 
 # Show Result
 echo "======================"
-echo "✅ Deployment Finished"
+echo " Deployment Finished"
 echo "======================"
-echo ""
 echo "Dev Environment Resources:"
 kubectl get all -n dev
 
-echo ""
 echo "Prod Environment Resources:"
 kubectl get all -n prod
